@@ -2,7 +2,7 @@
 export interface IMovie {
   id: number;
   title: string;
-  releaseYear: String;
+  releaseYear: string;
   description: string;
   duration: number;
   rating: number;

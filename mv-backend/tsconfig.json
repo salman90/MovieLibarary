@@ -111,11 +111,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.json",
-    ".env",
-    "test/movie.repositories.spec.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.json", ".env"]
   //"exclude": ["node_modules", "src/http", "src/logs"]
 }
