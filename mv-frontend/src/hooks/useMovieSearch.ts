@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { AxiosError, AxiosResponse } from "axios";
+import { useState, useEffect } from "react";
+import { AxiosError } from "axios";
 import { getRequest } from "../utils/apiService"; // Importing the get function for making API requests
 import { IMovie, UseMovieSearchResult } from "../components/movie/types"; // Importing the IMovie type for movies
 

@@ -3,10 +3,8 @@ import "./App.css";
 
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
-import Button from "@mui/material/Button";
 
 import Movie from "./components/movie/Movie";
-import MovieForm from "./components/movie/MovieForm";
 import { IMovie } from "./components/movie/types";
 import { deleteMovie, updateMovie } from "./utils/movieUtils";
 import { useMovieSearch } from "./hooks/useMovieSearch";
@@ -15,7 +13,6 @@ function App() {
   // State for the search term
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [showForm, setShowForm] = useState(false);
   // Custom hook to search movies based on the search term
   const { movies, loading, error, setMovies, setError, setLoading } =
     useMovieSearch(searchTerm);
@@ -70,55 +67,39 @@ function App() {
         <h1>Movie Library</h1>
       </header>
       <main>
-        {/* {showForm ? (
-          <section className="movie_form_container">
-            
-          </section>
-        ) : ( */}
-        <>
-          <section className="searchBar_container">
-            <TextField
-              id="search-bar"
-              label="Search by Title"
-              sx={{ width: "30%" }}
-              size="small"
-              onChange={handleSearch}
-              value={searchTerm}
-            />
-            {/* <Button
-                onClick={() => setShowForm(true)}
-                variant="contained"
-                size="large"
-                disableElevation
-              >
-                Create a new movie
-              </Button> */}
-          </section>
+        <section className="searchBar_container">
+          <TextField
+            id="search-bar"
+            label="Search by Title"
+            sx={{ width: "30%" }}
+            size="small"
+            onChange={handleSearch}
+            value={searchTerm}
+          />
+        </section>
 
-          <section className="main_container">
-            {loading && (
-              <div className="loading_container">
-                <CircularProgress className="loading-indicator" />
-              </div>
-            )}
-            <div className="error">
-              {!loading && error && <p> Error: {error}</p>}
+        <section className="main_container">
+          {loading && (
+            <div className="loading_container">
+              <CircularProgress className="loading-indicator" />
             </div>
-            {!loading && !error && (
-              <ul className="movies_container">
-                {movies.map((movie) => (
-                  <Movie
-                    key={movie.id}
-                    movie={movie}
-                    onDelete={() => handleDelete(movie.id)}
-                    onUpdate={handleUpdate}
-                  />
-                ))}
-              </ul>
-            )}
-          </section>
-        </>
-        {/* )} */}
+          )}
+          <div className="error">
+            {!loading && error && <p> Error: {error}</p>}
+          </div>
+          {!loading && !error && (
+            <ul className="movies_container">
+              {movies.map((movie) => (
+                <Movie
+                  key={movie.id}
+                  movie={movie}
+                  onDelete={() => handleDelete(movie.id)}
+                  onUpdate={handleUpdate}
+                />
+              ))}
+            </ul>
+          )}
+        </section>
       </main>
     </div>
   );
