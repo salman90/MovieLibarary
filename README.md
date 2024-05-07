@@ -11,7 +11,8 @@ This guide provides step-by-step instructions on how to set up and run the Movie
 
 1. Open your terminal or command prompt.
 2. Navigate to the directory where you want to clone the repository.
-3. Run the following command to clone the repository: `git clone https://github.com/salman90/Ensemble.git`
+3. Run the following command to clone the repository:
+   `git clone https://github.com/salman90/MovieLibarary.git`
 
 ## Step 2: Navigate to the Project Directory
 
@@ -35,6 +36,11 @@ Once Docker Compose has finished setting up the containers, you can access the M
 ## Step 5: Interacting with the Application
 
 You can now interact with the Movie Library application through the web interface. Use the search bar to search for movies, view movie details, and perform other actions available in the application.
+
+## Step 6: To run the tests
+
+1. Ensure that Docker is running on your machine.
+2. Run command `docker compose -f docker-test-compose.yml up`
 
 ## Additional Information
 

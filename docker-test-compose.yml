@@ -17,8 +17,7 @@ services:
     container_name: server
     build:
       context: ./mv-backend
-      dockerfile: Dockerfile
-    restart: unless-stopped
+      dockerfile: TestDockerFile
     env_file: ./mv-backend/.env
     volumes:
       - ./mv-backend:/app
@@ -33,21 +32,9 @@ services:
       - DB_PORT=3306
     depends_on:
       - mysqldb
+    restart: unless-stopped
     stdin_open: true
     tty: true
-  frontend:
-    container_name: client
-    build:
-      context: ./mv-frontend
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - 3000:3000
-    volumes:
-      - ./mv-frontend:/app
-      - /app/node_modules
-    depends_on:
-      - backend
-      - mysqldb
+
 volumes:
   database:

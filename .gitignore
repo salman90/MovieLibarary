@@ -1,0 +1,8 @@
+mv-backend/build/
+
+mv-backend/node_modules/
+mv-frontend/node_modules/
+
+.env
+.vscode/
+
