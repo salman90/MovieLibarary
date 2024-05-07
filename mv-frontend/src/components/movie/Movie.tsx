@@ -2,9 +2,11 @@ import React from "react";
 
 // Importing types for the movie
 import { IMovie } from "./types";
-import "./Movie.css";
 
 // Importing CSS styles for the Movie component
+import "./Movie.css";
+
+// Importing Material-UI components
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -19,7 +21,7 @@ import CardHeader from "@mui/material/CardHeader";
 // Define props interface for Movie component
 interface MovieProps {
   movie: IMovie;
-  onDelete: () => void;
+  onDelete: (movieId: number) => void;
   onUpdate: (updatedMovie: IMovie) => void;
 }
 
@@ -48,6 +50,11 @@ const Movie: React.FC<MovieProps> = ({ movie, onDelete, onUpdate }) => {
   ) => {
     const updatedMovie = { ...movie, rating: newRating ?? 0 }; // Set new rating valu
     onUpdate(updatedMovie); // Call onUpdate with updated movie object
+  };
+
+  // Function to handle delete movie
+  const handleDeleteMovie = () => {
+    onDelete(movie.id);
   };
 
   return (
@@ -81,7 +88,11 @@ const Movie: React.FC<MovieProps> = ({ movie, onDelete, onUpdate }) => {
         <IconButton onClick={handleDislikeClick}>
           <ThumbDownIcon /> {movie.dislikes}
         </IconButton>
-        <Button className="delete_button" size="small" onClick={onDelete}>
+        <Button
+          className="delete_button"
+          size="small"
+          onClick={handleDeleteMovie}
+        >
           Delete
         </Button>
       </CardActions>
@@ -89,4 +100,4 @@ const Movie: React.FC<MovieProps> = ({ movie, onDelete, onUpdate }) => {
   );
 };
 
-export default Movie;
+export default React.memo(Movie);
