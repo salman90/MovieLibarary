@@ -44,7 +44,6 @@ function App() {
   // Handler for updating a movie
   const handleUpdate = async (updatedMovie: IMovie) => {
     try {
-      setLoading(true);
       setError("");
       const success = await updateMovie(updatedMovie);
       setMovies((prevMovies) =>
