@@ -1,0 +1,12 @@
+.movie {
+  width: calc(32.33% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.movie .delete_button {
+  margin-left: auto;
+}
